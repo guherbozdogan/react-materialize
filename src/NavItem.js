@@ -11,7 +11,7 @@ const NavItem = ({
   if (divider) return <li className='divider' />;
   return (
     <li {...props}>
-      <a href={href} onclick={onclick} >
+      <a href={href} onClick={onclick} >
         { children }
       </a>
     </li>
