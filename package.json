@@ -15,7 +15,7 @@
     "build": "npm test && babel -d lib src",
     "lint": "eslint src test; exit 0",
     "fix": "eslint src test --fix",
-    "release": "npm run build && npm publish"
+    "release": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -56,7 +56,7 @@
     "jsdom": "^9.9.1",
     "jsdom-global": "^2.1.1",
     "materialize-css": "^0.98.0",
-    "mocha": "^3.2.0",
+    "mocha": "^3.5.3",
     "react-addons-test-utils": "^15.4.2",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.10.0",
