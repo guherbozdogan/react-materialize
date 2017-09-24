@@ -13,7 +13,7 @@ describe('<NavItem />', () => {
     );
 
     expect(wrapper.type()).to.eq('li');
-    expect(wrapper.children().first().type()).to.eq('a');
+    expect(wrapper.children().first().type()).to.eq('div');
   });
 
   it('passes className to first node', () => {
@@ -30,7 +30,7 @@ describe('<NavItem />', () => {
       <NavItem href='get-started.html'>{child}</NavItem>
     );
 
-    expect(wrapper.children().at(0).type()).to.eq('a');
+    expect(wrapper.children().at(0).type()).to.eq('div');
     expect(wrapper.children().at(0).children().at(0).type()).to.eq('p');
   });
 
