@@ -32,6 +32,7 @@ class Navbar extends Component {
       left,
       right,
       href,
+      brandLogo,
       ...other
     } = this.props;
 
@@ -46,29 +47,57 @@ class Navbar extends Component {
       'brand-logo': true,
       right: left
     };
+    if (brandLogo === undefined) {
+      let content = (
+        <nav {...other} className={className}>
+          <div className='nav-wrapper'>
+            <Col s={12}>
+              <a href={href} className={cx(brandClasses)}>{brand}</a>
+              <ul className={cx(className, classes)}>
+                {this.props.children}
+              </ul>
+              {this.renderSideNav()}
+              <a className='button-collapse' href='#' data-activates='nav-mobile'>
+                <Icon>view_headline</Icon>
+              </a>
+            </Col>
+          </div>
+        </nav>
+      );
+      if (fixed) {
+        content = <div className='navbar-fixed'>{content}</div>;
+      }
+      return content;
+    } else {
+      var divLogoStyle = {
+        backgroundImage: 'url(' + brandLogo + ')',
+        WebkitTransition: 'all', // note the capital 'W' here
+        msTransition: 'all', // 'ms' is the only lowercase vendor prefix
+        minWidth: '120px',
+        minHeight: '20px'
+      };
 
-    let content = (
-      <nav {...other} className={className}>
-        <div className='nav-wrapper'>
-          <Col s={12}>
-            <a href={href} className={cx(brandClasses)}>{brand}</a>
-            <ul className={cx(className, classes)}>
-              {this.props.children}
-            </ul>
-            {this.renderSideNav()}
-            <a className='button-collapse' href='#' data-activates='nav-mobile'>
-              <Icon>view_headline</Icon>
-            </a>
-          </Col>
-        </div>
-      </nav>
+      let content = (
+        <nav {...other} className={className}>
+          <div className='nav-wrapper'>
+            <Col s={12}>
+              <a href={href} className={cx(brandClasses)} style={divLogoStyle}>{brand}</a>
+              <ul className={cx(className, classes)}>
+                {this.props.children}
+              </ul>
+              {this.renderSideNav()}
+              <a className='button-collapse' href='#' data-activates='nav-mobile'>
+                <Icon>view_headline</Icon>
+              </a>
+            </Col>
+          </div>
+        </nav>
     );
-
-    if (fixed) {
-      content = <div className='navbar-fixed'>{content}</div>;
+      if (fixed) {
+        content = <div className='navbar-fixed'>{content}</div>;
+      }
+      return content;
     }
-
-    return content;
   }
 }
 
@@ -76,6 +105,7 @@ Navbar.propTypes = {
   brand: PropTypes.node,
   children: PropTypes.node,
   className: PropTypes.string,
+  brandLogo: PropTypes.string,
   left: PropTypes.bool,
   right: PropTypes.bool,
   href: PropTypes.string,
