@@ -51,7 +51,7 @@ class Navbar extends Component {
       let content = (
         <nav {...other} className={className}>
           <div className={'nav-wrapper ' + className}>
-            <Col s={12}>
+            <Col s={12} className={className}>
               <a href={href} className={cx(brandClasses)}>{brand}</a>
               <ul className={cx(className, classes)}>
                 {this.props.children}
@@ -81,7 +81,7 @@ class Navbar extends Component {
       let content = (
         <nav {...other} className={className}>
           <div className={'nav-wrapper ' + className} >
-            <Col s={12}>
+            <Col s={12} className={className}>
               <a href={href} className={cx(brandClasses)} style={divLogoStyle}>{brand}</a>
               <ul className={cx(className, classes)}>
                 {this.props.children}
