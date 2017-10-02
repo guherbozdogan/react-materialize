@@ -74,7 +74,8 @@ class Navbar extends Component {
         WebkitTransition: 'all', // note the capital 'W' here
         msTransition: 'all', // 'ms' is the only lowercase vendor prefix
         minWidth: '120px',
-        minHeight: '20px'
+        minHeight: '20px',
+        top: '17px'
       };
 
       let content = (
