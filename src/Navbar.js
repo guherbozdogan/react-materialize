@@ -50,7 +50,7 @@ class Navbar extends Component {
     if (brandLogo === undefined) {
       let content = (
         <nav {...other} className={className}>
-          <div className='nav-wrapper'>
+          <div className={'nav-wrapper ' + className}>
             <Col s={12}>
               <a href={href} className={cx(brandClasses)}>{brand}</a>
               <ul className={cx(className, classes)}>
