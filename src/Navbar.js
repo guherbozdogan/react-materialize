@@ -40,20 +40,18 @@ class Navbar extends Component {
 
     let classes = {
       right: right,
-      left: left,
       'hide-on-med-and-down': true
     };
 
     let brandClasses = {
       'brand-logo': true,
-      left: right,
       right: left
     };
     if (brandLogo === undefined) {
       let content = (
         <nav {...other} className={className}>
-          <div className={'nav-wrapper ' + className}>
-            <Col s={12} className={className}>
+          <div className='nav-wrapper '>
+            <Col s={12}>
               <a href={href} className={cx(brandClasses)}>{brand}</a>
               <ul className={cx(className, classes)}>
                 {this.props.children}
